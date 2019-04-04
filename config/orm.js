@@ -19,7 +19,7 @@ var orm = {
             cb(result)
         });
     },
-    devoured: function(){
+    devoured: function(col, table, condition, cb){
         var queryString = 'SELECT ' + col; 
         queryString += ' FROM ' + table ;
         queryString += ' WHERE ' + condition;
@@ -28,6 +28,15 @@ var orm = {
             if (err) throw err;
             cb(result)
         });
+    },
+    addBurger: function (table, vals, cb){
+        var queryString = 'INSERT INTO ' + table;
+        queryString += '(burger_name) VALUES (';
+        queryString += vals + ')';
+
+        connection.query(queryString, function(err, result){
+            cb(result)
+        })
     }
 };
 module.exports = orm;
