@@ -9,7 +9,7 @@ var orm = {
         connection.connect(queryString,function (err, result){
             if (err) throw err;
             cb(result)
-        })
+        });
     },
     devoured: function(){
         var queryString = 'SELECT ' + col; 
@@ -19,6 +19,7 @@ var orm = {
         connection.connect(queryString,function (err, result){
             if (err) throw err;
             cb(result)
-        })
+        });
     }
-}
+};
+module.exports = orm;
