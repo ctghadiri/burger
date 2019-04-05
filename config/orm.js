@@ -30,9 +30,9 @@ var orm = {
             cb(result)
         })
     },
-    update: function(table, condition, cb){
+    update: function(table, colsVals, condition, cb){
         var queryString = 'UPDATE ' + table; 
-        queryString += ' SET ' + objToSql(objColVals);
+        queryString += ' SET ' + objToSql(colsVals);
         queryString += ' WHERE ' + condition;
 
         connection.query(queryString,function (err, result){

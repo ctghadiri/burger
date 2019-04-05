@@ -6,11 +6,15 @@ var burger = {
             cb(res);
         });
     },
-    update: function(cb){
-        orm.update(,'burgers', cb)
+    update: function(colsVals, condition, cb){
+        orm.update('burgers',  colsVals, condition, function(res){
+            cb(res)
+        });
     },
-    create: function(cb){
-        orm.create('burgers', cb)
+    create: function(cols, vals, cb){
+        orm.create('burgers', cols, vals, function (res){
+            cb(res);
+        });
     }
-}
+};
 module.exports = burger;
