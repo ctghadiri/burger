@@ -1,5 +1,26 @@
 var connection = require('connection.js');
 
+function printQuestionMarks(num){
+    var arr = [];
+    for (var i = 0; i < num; i++){
+        arr.push('?');
+    }
+    return arr.toString();
+}
+
+function objToSql(object){
+    var arr = [];
+    for (var key in object){
+        var value = object[key];
+        if (Object.asOwnProperty.call(object,key)){
+            if (typeof value === 'string' && value.indexOf(' ') >= 0){
+                value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
+        }
+    }
+    return arr.toString();
+}
 var orm = {
     all: function (table, cb){
         var queryString = 'SELECT * FROM ';
@@ -9,9 +30,9 @@ var orm = {
             cb(result)
         })
     },
-    update: function(col, table, condition, cb){
-        var queryString = 'SELECT ' + col; 
-        queryString += ' FROM ' + table ;
+    update: function(table, condition, cb){
+        var queryString = 'UPDATE ' + table; 
+        queryString += ' SET ' + objToSql(objColVals);
         queryString += ' WHERE ' + condition;
 
         connection.query(queryString,function (err, result){
@@ -19,10 +40,11 @@ var orm = {
             cb(result)
         });
     },
-    create: function (table, vals, cb){
+    create: function (table, cols, vals, cb){
         var queryString = 'INSERT INTO ' + table;
-        queryString += '(burger_name) VALUES (';
-        queryString += vals + ')';
+        queryString += ' (' + cols.toString();
+        queryString += ') VALUES (';
+        queryString += printQuestionMarks(vals.length) + ')';
 
         connection.query(queryString, function(err, result){
             cb(result)
