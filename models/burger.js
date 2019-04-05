@@ -6,4 +6,11 @@ var burger = {
             cb(res);
         });
     },
+    update: function(cb){
+        orm.update(,'burgers', cb)
+    },
+    create: function(cb){
+        orm.create('burgers', cb)
+    }
 }
+module.exports = burger;
