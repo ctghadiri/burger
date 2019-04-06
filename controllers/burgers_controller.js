@@ -8,14 +8,13 @@ router.get("/", function (req, res){
         var hbsObject = {
             burgers: data
         };
-        console.log(hbsObject)
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/burger", function(req,res){
     burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result){
-        res.json({id: result.insertId});
+        res.json({ id: result.insertId });
     });
 });
 
