@@ -1,1 +1,1 @@
-INSERT INTO burgers (burger_name) VAlUES ('Doube Western'), ('Big Mac'), ('Veggie Burger')
+INSERT INTO burgers (burger_name) VAlUES ('Double Western'), ('Big Mac'), ('Veggie Burger')
