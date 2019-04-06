@@ -1,20 +1,41 @@
-li {
+*{
+  text-align: center;
+}
+body{
+  margin: 0 auto;
+  background-image: url(https://image-cdn.neatoshop.com/styleimg/41500/none/brown/default/288406-20.jpg);
+  background-size: cover;
+}
+table {
     padding: 5px;
-    margin: 5px;
+    margin: 0 auto;
     background: #faebd7;
-  }
+}
   
-  .label {
+.label {
     font-weight: bold;
-  }
+}
   
-  .create-update-form {
+.create-form {
     padding: 5px;
     margin: 5px;
-    background: darkgreen;
-  }
+    background: lightgreen;
+}
   
-  .form-group {
-    margin-bottom: 5px;
-  }
-  
+.form-group {
+  margin-bottom: 5px;
+
+}
+
+p, h1{
+  color: aqua;
+}
+h2{
+  color: fuchsia;
+}
+div{
+  margin: 10px;
+}
+td {
+  width: 20%;
+}
